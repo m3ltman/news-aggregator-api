@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/user');
 const { key } = require('../../configuration/config');
 const UnathorizedError = require('../../errors/Unathorized');
+const { UNAUTHORIZED } = require('../../configuration/constants');
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -26,6 +27,6 @@ module.exports.login = (req, res, next) => {
       if (err.message !== 'Неправильные почта или пароль') {
         return next(err);
       }
-      return next(new UnathorizedError(err.message));
+      return next(new UnathorizedError(UNAUTHORIZED));
     });
 };
