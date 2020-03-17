@@ -15,7 +15,7 @@ const app = express();
 
 mongoose.connect(dbLink, dbOptions);
 
-app.use(helmet);
+app.use(helmet());
 app.use(limiter);
 app.use(cookieParser());
 app.use(bodyParser.json());
