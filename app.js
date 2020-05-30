@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable object-curly-newline */
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
@@ -12,6 +13,7 @@ const { errorHandler } = require('./middlewares/ErrorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
+app.use(cors());
 
 mongoose.connect(dbLink, dbOptions);
 
