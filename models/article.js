@@ -26,14 +26,14 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (v) => validator.isURL(v),
+      validator: (link) => validator.isURL(link),
     },
   },
   image: {
     type: String,
     required: true,
     validate: {
-      validator: (v) => validator.isURL(v),
+      validator: (link) => validator.isURL(link),
     },
   },
   owner: {

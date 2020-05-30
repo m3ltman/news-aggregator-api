@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const Article = require('../../models/article');
 
 module.exports.getArticles = (req, res, next) => {
