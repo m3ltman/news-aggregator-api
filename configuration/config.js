@@ -5,7 +5,7 @@ const rateLimit = require('express-rate-limit');
 
 const { NODE_ENV, JWT_SECRET, PORT = 3000 } = process.env;
 
-const dbLink = 'mongodb://localhost:27017/mestodb';
+const dbLink = 'mongodb://localhost:27017/news-aggregator';
 const dbOptions = {
   useNewUrlParser: true,
   useCreateIndex: true,

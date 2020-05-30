@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
 const { key } = require('../configuration/config');
 const UnathorizedError = require('../errors/Unathorized');
+const { UNAUTHORIZED } = require('../configuration/constants');
 
 module.exports = (req, res, next) => {
   if (!req.cookies.jwt) {
-    throw new UnathorizedError('Unathorized');
+    throw new UnathorizedError(UNAUTHORIZED);
   }
 
   let payload;
@@ -12,7 +13,7 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(req.cookies.jwt, key);
   } catch (err) {
-    next(new UnathorizedError(err.message));
+    next(new UnathorizedError(UNAUTHORIZED));
   }
   req.user = payload;
 
