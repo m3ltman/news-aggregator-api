@@ -7,15 +7,7 @@ module.exports.createArticle = (req, res, next) => {
   const { keyword, title, text, date, source, link, image } = req.body;
 
   Article.create({ keyword, title, text, date, source, link, image, owner })
-    .then((article) => res.status(201).send({
-      keyword: article.keyword,
-      title: article.title,
-      text: article.text,
-      date: article.date,
-      source: article.source,
-      link: article.link,
-      image: article.image,
-    }))
+    .then((article) => res.status(201).send({ article }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequestError(err.message));
