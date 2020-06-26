@@ -13,7 +13,11 @@ const { errorHandler } = require('./middlewares/ErrorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
-app.use(cors({ origin: ['http://localhost:8080', 'http://localhost:3000', 'http://news-aggregator.tk/', 'https://news-aggregator.tk'], credentials: true }));
+
+app.use(cors({
+  origin: ['http://localhost:8080', 'http://localhost:3000', 'http://news-aggregator.tk/', 'https://news-aggregator.tk', 'https://m3ltman.github.io/'],
+  credentials: true,
+}));
 
 mongoose.connect(dbLink, dbOptions);
 
